@@ -1,31 +1,104 @@
 {
-  "interactionModel": {
-      "languageModel": {
-        "invocationName": "help me find an expert",
-        "intents": [
-          {
-            "name": "AMAZON.FallbackIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.CancelIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.HelpIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.StopIntent",
-            "samples": []
-          },
-          {
-            "name": "SearchIntent",
-            "slots": [],
-            "samples": []
-          }
-      ],
-      "types": []
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "help me find an expert",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "SearchIntent",
+                    "slots": [
+                        {
+                            "name": "Role",
+                            "type": "RoleType"
+                        },
+                        {
+                            "name": "Technology",
+                            "type": "TechnologyType"
+                        }
+                    ],
+                    "samples": [
+                        "find me an expert",
+                        "find me a JNJ employee",
+                        "search for a JNJ employee",
+                        "find me {Role} who works with {Technology}",
+                        "find me {Role} who works with {Role}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "RoleType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "PO",
+                                "synonyms": [
+                                    "Product Owner"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "BTL",
+                                "synonyms": [
+                                    "Business Technology Leader"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Developer",
+                                "synonyms": [
+                                    "Software Engineer",
+                                    "Software Developer"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "TechnologyType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Mobile development",
+                                "synonyms": [
+                                    "iOS",
+                                    "Android"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Alexa Skill",
+                                "synonyms": [
+                                    "Alexa App"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "NodeJS"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
     }
-  }
 }
